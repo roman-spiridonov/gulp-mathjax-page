@@ -15,6 +15,7 @@
     "fs-extra": "^4.0.1",
     "gulp": "^3.9.1",
     "gulp-debug": "^3.1.0",
+    "mathjax-node-svg2png": "^1.1.0",
     "mocha": "^3.5.0"
   },
   "scripts": {

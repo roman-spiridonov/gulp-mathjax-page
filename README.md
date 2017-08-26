@@ -42,8 +42,8 @@ const options = {
             console.log(parsedFormula.sourceFormula);
         }
     },
-    mjnode: require('mathjax-node-svg2png'),  // pass custom mathjax-node
-    outputHandlers: {  // map of output handlers
+    mjnode: require('mathjax-node-svg2png'),  // pass custom mathjax-node (optional)
+    outputHandlers: {  // map of output handlers (optional)
         'png': (wrapper, data) => {
             wrapper.innerHTML = `<img src="${data}">`;
         }

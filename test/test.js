@@ -40,4 +40,15 @@ describe('Converts html files with formulas properly', function() {
             }
         }, done);
     });
+    it('mml - mjnodeConfig also works', function(done) {
+        doGulpTest('test.html', 'test-mml.html', {
+            mjpageConfig: {
+                format: ["MathML", "TeX", "AsciiMath"],
+                singleDollars: true
+            },
+            mjnodeConfig: {
+                mml: true
+            }
+        }, done);
+    });
 });

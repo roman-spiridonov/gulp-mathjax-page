@@ -20,7 +20,7 @@ function mathjax(input, options, callback) {
     }
 
     // run
-    let job = mjpage.mjpage(input, options.mjpageConfig, options.mjnodeConfig, (output) => {
+    let job = mjpage.mjpage(input, options.mjpageConfig || {}, options.mjnodeConfig || {}, (output) => {
         if(options.mjnode) {
             mjpage.init();  // reset to default mathjax-node after job run
         }

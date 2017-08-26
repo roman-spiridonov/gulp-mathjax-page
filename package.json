@@ -1,6 +1,6 @@
 {
   "name": "gulp-mathjax-page",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "gulp wrapper around mathjax-node-page",
   "main": "index.js",
   "directories": {

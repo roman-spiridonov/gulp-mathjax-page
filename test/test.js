@@ -2,8 +2,10 @@
  * Created by Roman Spiridonov <romars@phystech.edu> on 8/26/2017.
  */
 const fs = require('fs-extra');
+const expect = require('chai').expect;
 
 const doGulpTest = require('./helpers').doGulpTest;
+const dos2nix = require('./helpers').dos2nix;
 
 describe('Converts html files with formulas properly', function() {
     before(function() {
@@ -20,7 +22,10 @@ describe('Converts html files with formulas properly', function() {
                 singleDollars: true,
                 output: "svg"
             }
-        }, done);
+        }, (output, expected) => {
+            expect(dos2nix(output)).to.equal(dos2nix(expected));
+            done();
+        });
     });
     it('html', function(done) {
         doGulpTest('test.html', 'test-html.html', {
@@ -29,7 +34,10 @@ describe('Converts html files with formulas properly', function() {
                 singleDollars: true,
                 output: "html"
             }
-        }, done);
+        }, (output, expected) => {
+            expect(dos2nix(output)).to.equal(dos2nix(expected));
+            done();
+        });
     });
     it('mml', function(done) {
         doGulpTest('test.html', 'test-mml.html', {
@@ -38,7 +46,10 @@ describe('Converts html files with formulas properly', function() {
                 singleDollars: true,
                 output: "mml"
             }
-        }, done);
+        }, (output, expected) => {
+            expect(dos2nix(output)).to.equal(dos2nix(expected));
+            done();
+        });
     });
     it('mml - mjnodeConfig also works', function(done) {
         doGulpTest('test.html', 'test-mml.html', {
@@ -49,6 +60,9 @@ describe('Converts html files with formulas properly', function() {
             mjnodeConfig: {
                 mml: true
             }
-        }, done);
+        }, (output, expected) => {
+            expect(dos2nix(output)).to.equal(dos2nix(expected));
+            done();
+        });
     });
 });

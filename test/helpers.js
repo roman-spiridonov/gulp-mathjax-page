@@ -4,13 +4,12 @@
 const fs = require('fs-extra');
 const gulp = require('gulp');
 const debug = require('gulp-debug');
-const expect = require('chai').expect;
 
 const mathjax = require('../index');
 
-function dos2nix(fileStr) {
+exports.dos2nix = function(fileStr) {
     return fileStr.replace(/\r\n/g, "\n");
-}
+};
 
 function checkFileStrEql(fileStr1, fileStr2) {
     return ( dos2nix(fileStr1) === dos2nix(fileStr2) );
@@ -24,7 +23,6 @@ exports.doGulpTest = function doGulpTest(sourceFile, expectedFile, options, cb) 
     .on('end', () => {
         let output = fs.readFileSync(`test/data/out/${sourceFile}`, {encoding: 'utf-8'});
         let expected = fs.readFileSync(`test/data/expected/${expectedFile}`, {encoding: 'utf-8'});
-        expect(dos2nix(output)).to.equal(dos2nix(expected));
-        cb();
+        cb(output, expected);
     });
 };

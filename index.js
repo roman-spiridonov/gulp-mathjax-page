@@ -6,6 +6,7 @@ const gulpPluginFabric = require('gulp-plugin-fabric');
 
 // gulp-plugin-fabric supports only single options object, but mjpage has two
 function mathjax(input, options, callback) {
+    options = options || {};
     // set custom mjnode
     if(options.mjnode) {
         mjpage.init(options.mjnode);
